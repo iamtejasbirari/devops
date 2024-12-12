@@ -1,0 +1,21 @@
+This is DevOps Project.
+
+# 1 : 
+- Create a React Frontend Project in frontend folder.
+- using command 'npx create-react-app .'
+- Develope frontend.
+
+# 2 :
+- Create a Node/Express Backend Project in backend folder.
+- use 'npm init' to create package.json file.
+- use 'npm i express dotenv cors body-parser' to install dependencies.
+- Develope backend.
+
+# 3 :
+- Create a Dockerfile for frontend and backend application to create an image.
+
+# 4 : 
+- Setup Jenkins, create a pipeline for a test env, where :- 
+- 1. Git commits will be detected by Jenkins.
+- 1. Jenkins pipeline will execute & build docker image & push build image to private repo.
+- 2. After that Jenkins will pull latest image from repo and will execute docker image to run container.
