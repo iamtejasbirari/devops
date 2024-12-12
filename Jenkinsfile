@@ -4,7 +4,7 @@ pipeline{
     environment {
         FRONTEND_IMAGE = 'tejasbi/frontend-app'
         BACKEND_IMAGE = 'tejasbi/backend-app'
-        IMAGE_TAG = "latest" // Use build number as a unique tag
+        IMAGE_TAG = "latest-${env.BUILD_NUMBER}" // Use build number as a unique tag
     }
 
     stages{
