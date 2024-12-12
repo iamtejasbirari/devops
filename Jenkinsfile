@@ -1,7 +1,7 @@
 pipeline{
     agent any 
 
-    eenvironment {
+    environment {
         FRONTEND_IMAGE = 'tejasbi/frontend-app'
         BACKEND_IMAGE = 'tejasbi/backend-app'
         IMAGE_TAG = "latest" // Use build number as a unique tag
