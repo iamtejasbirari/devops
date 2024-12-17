@@ -16,7 +16,7 @@ pipeline{
         stage('Build Frontend Image') {
             steps {
                 script {
-                    sh """
+                    bat """
                     docker build -t ${FRONTEND_IMAGE}:${IMAGE_TAG} ./frontend
                     """
                 }
@@ -25,7 +25,7 @@ pipeline{
         stage('Build Backend Image') {
             steps {
                 script {
-                    sh """
+                    bat """
                     docker build -t ${BACKEND_IMAGE}:${IMAGE_TAG} ./backend
                     """
                 }
@@ -35,7 +35,7 @@ pipeline{
             steps {
                 script {
                     docker.withRegistry('', 'dockerhub-credentials-id') {
-                        sh """
+                        bat """
                         docker push ${FRONTEND_IMAGE}:${IMAGE_TAG}
                         """
                     }
@@ -46,7 +46,7 @@ pipeline{
             steps {
                 script {
                     docker.withRegistry('', 'dockerhub-credentials-id') {
-                        sh """
+                        bat """
                         docker push ${BACKEND_IMAGE}:${IMAGE_TAG}
                         """
                     }
