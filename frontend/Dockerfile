@@ -4,8 +4,8 @@ FROM node:18 as build
 # Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json to install dependencies
-COPY package.json package-lock.json ./
+# Copy package.json and to install dependencies
+COPY package.json  ./
 
 # Install dependencies
 RUN npm install
