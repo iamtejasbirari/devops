@@ -17,7 +17,7 @@ pipeline{
         stage('Build Frontend Image') {
             steps {
                 script {
-                    bat """
+                    sh """
                     docker build -t ${FRONTEND_IMAGE}:${IMAGE_TAG} ./frontend
                     """
                 }
@@ -26,7 +26,7 @@ pipeline{
         stage('Build Backend Image') {
             steps {
                 script {
-                    bat """
+                    sh """
                     docker build -t ${BACKEND_IMAGE}:${IMAGE_TAG} ./backend
                     """
                 }
@@ -36,7 +36,7 @@ pipeline{
             steps {
                 script {
                     docker.withRegistry('', 'dockerhub-credentials-id') {
-                        bat """
+                        sh """
                         docker push ${FRONTEND_IMAGE}:${IMAGE_TAG}
                         """
                     }
@@ -47,7 +47,7 @@ pipeline{
             steps {
                 script {
                     docker.withRegistry('', 'dockerhub-credentials-id') {
-                        bat """
+                        sh """
                         docker push ${BACKEND_IMAGE}:${IMAGE_TAG}
                         """
                     }
@@ -57,22 +57,22 @@ pipeline{
         // stage('Deploy Frontend') {
         //     steps {
         //         script {
-        //             bat 'kubectl apply -f frontend/Deployment.yaml'
+        //             sh 'kubectl apply -f frontend/Deployment.yaml'
         //         }
         //     }
         // }
         // stage('Deploy Backend') {
         //     steps {
         //         script {
-        //             bat 'kubectl apply -f backend/Deployment.yaml'
+        //             sh 'kubectl apply -f backend/Deployment.yaml'
         //         }
         //     }
         // }
         // stage('Verify Deployment') {
         //     steps {
         //         script {
-        //             bat 'kubectl get pods'
-        //             bat 'kubectl get svc'
+        //             sh 'kubectl get pods'
+        //             sh 'kubectl get svc'
         //         }
         //     }
         // }
